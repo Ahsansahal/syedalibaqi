@@ -1,6 +1,6 @@
 /**
  * Central content file for the whole site, migrated from the original Wix site
- * (deepakravi.co.uk). Pages are presentational and read everything from here.
+ * (syedalibaqi.co.uk). Pages are presentational and read everything from here.
  * Gallery items live in ./galleries.js.
  *
  * Media paths point to /public (e.g. "/images/…", "/videos/…", "/files/…").
@@ -10,7 +10,7 @@ export const site = {
   name: "Syed Ali Abdul Baqi",
   role: "Visual Artist",
   location: "London",
-  email: "deepuckravi@gmail.com",
+  email: "syedaliabdulbaqi@gmail.com",
   phones: [
     { label: "+44 (0) 74044 38838", tel: "+447404438838", whatsapp: "447404438838" },
     { label: "+91 9840312725", tel: "+919840312725", whatsapp: "919840312725" },
@@ -34,7 +34,7 @@ export const navigation = [
   { label: "Generative AI", href: "/generative-ai" },
   { label: "Album art", href: "/album-art" },
   { label: "Clients", href: "/clients" },
-  { label: "About Dee", href: "/about" },
+  { label: "About Ali", href: "/about" },
   { label: "Contact", href: "/contact" },
 ];
 

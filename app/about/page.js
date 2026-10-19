@@ -4,7 +4,7 @@ import VideoPlayer from "@/components/VideoPlayer";
 import { CvButton } from "@/components/ui";
 import { about, marquees, site } from "@/data/site";
 
-export const metadata = { title: "About Dee" };
+export const metadata = { title: "About Ali" };
 
 export default function AboutPage() {
   return (
