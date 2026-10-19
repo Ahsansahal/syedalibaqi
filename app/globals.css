@@ -1,0 +1,89 @@
+@import "tailwindcss";
+
+/* Design tokens taken from the original Wix theme. */
+@theme inline {
+  --color-ink: #000000;
+  --color-paper: #ffffff;
+  --color-accent: #e53726;
+  --color-brown: #8b6755;
+  --color-muted: #bfbfbf;
+  --color-line: #404040;
+
+  --font-sans: var(--font-barlow), ui-sans-serif, system-ui, sans-serif;
+  /* Original headings use "Benzin" (commercial). Unbounded is the closest free match. */
+  --font-display: var(--font-display), ui-sans-serif, system-ui, sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--color-ink);
+  color: var(--color-paper);
+  font-family: var(--font-sans);
+  font-weight: 200; /* Barlow ExtraLight, as on the original */
+  -webkit-font-smoothing: antialiased;
+}
+
+::selection {
+  background: var(--color-accent);
+  color: var(--color-paper);
+}
+
+/* Fluid display sizes that scale from the 980px Wix grid. */
+.text-hero {
+  font-size: clamp(2.6rem, 9.6vw, 123px);
+  line-height: 0.85;
+  letter-spacing: -0.04em;
+}
+.text-page-title {
+  font-size: clamp(2.4rem, 7.8vw, 100px);
+  line-height: 0.9;
+  letter-spacing: -0.05em;
+}
+
+/* Fade-up reveal used by <Reveal>. */
+.reveal {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 1s ease, transform 1s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.reveal.is-visible {
+  opacity: 1;
+  transform: none;
+}
+
+/* Marquee */
+@keyframes marquee-rtl {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+@keyframes marquee-ltr {
+  from { transform: translateX(-50%); }
+  to { transform: translateX(0); }
+}
+.marquee-track {
+  animation: marquee-rtl var(--marquee-duration, 30s) linear infinite;
+}
+.marquee-track[data-direction="ltr"] {
+  animation-name: marquee-ltr;
+}
+.marquee:hover .marquee-track {
+  animation-play-state: paused;
+}
+
+/* Gentle bounce for the scroll-down arrows */
+@keyframes nudge {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(10px); }
+}
+.animate-nudge {
+  animation: nudge 2s ease-in-out infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .reveal { opacity: 1; transform: none; transition: none; }
+  .marquee-track, .animate-nudge { animation: none; }
+}
